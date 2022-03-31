@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Map with a legend for areas</title>
+    <style type="text/css">
+        .container {
+            max-width: 400px;
+            margin: auto;
+        }
+
+        .mapael .map {
+            position: relative;
+        }
+        .mapael .mapTooltip {
+            position: absolute;
+            background-color: #fff;
+            moz-opacity: 0.70;
+            opacity: 0.70;
+            filter: alpha(opacity=70);
+            border-radius: 10px;
+            padding: 1px;
+            z-index: 1000;
+            max-width: 300px;
+            display: none;
+            color: #343434;
+            font-size: 7px;
+        }
+        li {
+          margin-left: -30px;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"
+            charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" charset="utf-8"></script>
+    <script src="jquery.mapael.js" charset="utf-8"></script>
+    <script src="poland.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $(".mapcontainer2").mapael({
+                map: {
+                    name: "poland",
+                    defaultArea: {
+                        attrs: {
+                            stroke: "#fff",
+                            "stroke-width": 1
+                        },
+                        attrsHover: {
+                            "stroke-width": 2
+                        }
+                    }
+                },
+                areas: {
+                    "pm": {
+                        value: "Pomorskie",
+                        href: "#",
+                        tooltip: {content:"<ul><li>1.Antoni - 475</li><li>2.Aleksander - 456</li><li>3.Jan - 456</li><li>4.Franciszek - 450</li><li>5.Leon - 423</li><li>6.Jakub - 397</li><li>7.Ignacy - 357</li><li>8.Mikołaj - 347</li><li>9.Stanisław - 346</li><li>10.Nikodem - 329</li></ul>"}
+
+                    },
+                    "zp": {
+                      value: "Zachodniopomorskie",
+                      href: "#",
+                      tooltip: {content: "<ul><li>1.Antoni - 347</li><li>2.Jan - 271</li><li>3.Franciszek - 261</li><li>4.Leon - 246</li><li>5.Aleksander - 245</li><li>6.Jakub - 236</li><li>7.Mikołaj - 201</li><li>8.Nikodem - 192</li><li>9.Filip - 189</li><li>10.Stanisław - 186</li></ul>"}
+
+                  },
+                  "wm": {
+                    value: "Warmińsko-Mazurskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Aleksander - 276</li><li>2.Antoni - 247</li><li>3.Jan - 242</li><li>4.Franciszek - 221</li><li>5.Nikodem - 191</li><li>6.Jakub - 186</li><li>7.Szymon - 171</li><li>8.Stanisław - 167</li><li>9.Mikołaj - 161</li><li>10.Filip - 158</li></ul>"}
+
+                  },
+                  "pd": {
+                    value: "Podlaskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Aleksander - 262</li><li>2.Antoni - 222</li><li>3.Jakub - 215</li><li>4.Franciszek - 194</li><li>5.Jan - 189</li><li>6.Szymon - 173</li><li>7.Mikołaj - 168</li><li>8.Filip - 143</li><li>9.Michał - 142</li><li>10.Marcel - 138</li></ul>"}
+
+                  },
+                  "mz": {
+                    value: "Mazowieckie",
+                    href: "#",
+                    tooltip: {content:"<ul><li>1.Jan - 1372</li><li>2.Aleksander - 1312</li><li>3.Antoni - 1255</li><li>4.Franciszek - 1143</li><li>5.Jakub - 986</li><li>6.Stanisław - 935</li><li>7.Mikołaj - 852</li><li>8.Ignacy - 786</li><li>9.Szymon - 774</li><li>10.Filip - 752</li></ul>"}
+
+                  },
+                  "kp": {
+                    value: "Kujawsko-Pomorskie",
+                    href: "#",
+                    tooltip: {content:"<ul><li>1.Antoni - 410</li><li>2.Jakub - 367</li><li>3.Aleksander - 366</li><li>4.Franciszek - 360</li><li>5.Jan - 342</li><li>6.Leon - 290</li><li>7.Nikodem - 289</li><li>8.Mikołaj - 284</li><li>9.Tymon - 249</li><li>10.Szymon - 249</li></ul>"}
+
+                  },
+                  "wp": {
+                    value: "Wielkopolskie",
+                    href: "#",
+                    tooltip: {content:"<ul><li>1.Antoni - 808</li><li>2.Jan - 710</li><li>3.Franciszek - 694</li><li>4.Leon - 651</li><li>5.Aleksander - 632</li><li>6.Stanisław - 624</li><li>7.Wojciech - 553</li><li>8.Jakub - 518</li><li>9.Ignacy - 484</li><li>10.Mikołaj - 442</li></ul>"}
+                  },
+                  "lu": {
+                    value: "Lubuskie",
+                    href: "#",
+                    tooltip: {content:"<ul><li>1.Antoni - 192</li><li>2.Leon - 132</li><li>3.Franciszek - 127</li><li>4.Jan - 124</li><li>5.Aleksander - 124</li><li>6.Jakub - 119</li><li>7.Szymon - 115</li><li>8.Nikodem - 113</li><li>9.Filip - 109</li><li>10.Ignacy - 105</li></ul>"}
+                  },
+                  "ds": {
+                    value: "Dolnośląskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Antoni - 539</li><li>2.Jakub - 467</li><li>3.Jan - 450</li><li>4.Aleksander - 435</li><li>5.Leon - 435</li><li>6.Franciszek - 431</li><li>7.Filip - 391</li><li>8.Mikołaj - 387</li><li>9.Ignacy - 332</li><li>10.Stanisław - 330</li></ul>"}
+                  },
+                  "ld": {
+                    value: "Łódzkie",
+                    href: "#",
+                    tooltip: {content:"<ul><li>1.Antoni - 509</li><li>2.Aleksander - 478</li><li>3.Jan - 458</li><li>4.Franciszek - 395</li><li>5.Jakub - 372</li><li>6.Mikołaj - 316</li><li>7.Leon - 307</li><li>8.Szymon - 307</li><li>9.Wojciech - 293</li><li>10.Filip - 287</li></ul>"}
+                  },
+                  "le": {
+                    value: "Lubelskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Antoni - 409</li><li>2.Aleksander - 394</li><li>3.Jan - 336</li><li>4.Jakub - 336</li><li>5.Mikołaj - 320</li><li>6.Franciszek - 299</li><li>7.Szymon - 293</li><li>8.Nikodem - 260</li><li>9.Filip - 253</li><li>10.Ignacy - 233</li></ul>"}
+                  },
+                  "sk": {
+                    value: "Świętokrzyskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Antoni - 279</li><li>2.Aleksander - 223</li><li>3.Jan - 200</li><li>4.Franciszek - 198</li><li>5.Jakub - 172</li><li>6.Mikołaj - 142</li><li>7.Nikodem - 139</li><li>8.Marcel - 130</li><li>9.Szymon - 127</li><li>10.Stanisław - 122</li></ul>"}
+                  },
+                  "pk": {
+                    value: "Podkarpackie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Antoni - 459</li><li>2.Jakub - 408</li><li>3.Szymon - 367</li><li>4.Franciszek - 366</li><li>5.Aleksander - 357</li><li>6.Jan - 330</li><li>7.Nikodem - 298</li><li>8.Mikołaj - 289</li><li>9.Filip - 286</li><li>10.Tymon - 274</li></ul>"}
+                  },
+                  "mp": {
+                    value: "Małopolskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Antoni - 758</li><li>2.Jan - 715</li><li>3.Franciszek - 715</li><li>4.Jakub - 714</li><li>5.Aleksander - 683</li><li>6.Szymon - 554</li><li>7.Mikołaj - 537</li><li>8.Leon - 505</li><li>9.Filip - 492</li><li>10.Nikodem - 452</li></ul>"}
+                  },
+                  "sl": {
+                    value: "Śląskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Jakub - 801</li><li>2.Antoni - 763</li><li>3.Franciszek - 653</li><li>4.Jan - 650</li><li>5.Filip - 636</li><li>6.Leon - 594</li><li>7.Mikołaj - 574</li><li>8.Aleksander - 572</li><li>9.Szymon - 533</li><li>10.Wojciech - 502</li></ul>"}
+                  },
+                  "op": {
+                    value: "Opolskie",
+                    href: "#",
+                    tooltip: {content: "<ul><li>1.Antoni - 147</li><li>2.Jakub - 132</li><li>3.Jan - 126</li><li>4.Leon - 123</li><li>5.Franciszek - 120</li><li>6.Szymon - 109</li><li>7.Filip - 108</li><li>8.Wojciech - 105</li><li>9.Aleksander - 101</li><li>10.Nikodem - 98</li></ul>"}
+                  }
+
+
+
+                }
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+<div class="container">
+    <div class="mapcontainer2">
+        <div class="map">
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>

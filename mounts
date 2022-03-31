@@ -1,0 +1,5 @@
+/dev/root / zfs rw,noatime,xattr,noacl 0 0
+vservers/v22669/home /home zfs rw,noatime,xattr,noacl 0 0
+vservers/v22669/srv /srv zfs rw,noatime,xattr,noacl 0 0
+none /dev/pts devpts rw,relatime,gid=5,mode=620,ptmxmode=000 0 0
+none /proc proc rw,nosuid,nodev,noexec,relatime,gid=600,hidepid=2 0 0

@@ -1,0 +1,128 @@
+@main-bg:rgb(40,40,59);
+@calendar-border:rgb(220,220,255);
+@calendar-bg:#fff;
+@calendar-standout:rgb(40,40,59);
+@calendar-color:#444;
+@calendar-fade-color:#c0c0c0;
+@body-color:#444;
+
+html, body {
+  height:80%;
+}
+body {
+  font-size:100%;
+  line-height:1.5;
+  font-family: "Roboto Condensed", sans-serif;
+  background-image:linear-gradient(@main-bg 0%, darken(@main-bg,12%) 100%);
+  color: black;
+
+}
+
+*, *:before, *:after {
+  box-sizing:border-box;
+}
+
+.group {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+img {
+  max-width:100%;
+  height:auto;
+  vertical-align:baseline;
+}
+
+a {
+  text-decoration:none;
+}
+
+
+
+
+
+.calendar-wrapper {
+  width:15vw;
+  border-radius:5px;
+  background-color: rgba(48, 33, 33, 0.06);
+
+
+
+}
+table {
+  clear:both;
+  width:100%;
+  border:1px solid @calendar-border;
+  border-radius:3px;
+  border-collapse:collapse;
+  color:@calendar-color;
+  background-color: rgba(245,245,245,255);
+  border: 2px solid rgb(256,196,4);
+}
+td {
+  height:40px;
+  text-align:center;
+  vertical-align:middle;
+  border: 1px solid rgb(256,196,4);
+  border: 1px solid rgb(256,196,4);
+  width:100% / 7;
+}
+
+
+td.not-current {
+  color: rgba(48, 33, 133, 0.14);
+  font-size: 80%;
+}
+
+
+td.normal {}
+td.today {
+  border: 2px  solid red;
+  color: gold;
+  font-size:1.5em;
+}
+thead td {
+
+  color:@calendar-standout;
+  text-transform:uppercase;
+  color: black;
+  font-size:1.5em;
+  background-color: rgba(48, 33, 33, 0.06);     // #FF9FBC; - roz #A3D1EB; - nieb
+}
+#btnPrev {
+  float:left;
+  border: 2px solid rgb(256,196,4);
+  &:before {
+    content:'\f104';
+    font-family:FontAwesome;
+    padding-right:4px;
+  }
+}
+#btnNext {
+  float:right;
+  border: 2px solid rgb(256,196,4);
+  &:after {
+    content:'\f105';
+    font-family:FontAwesome;
+    padding-left:4px;
+  }
+}
+#btnPrev, #btnNext {
+  background:transparent;
+  background-color: rgba(48, 33, 33, 0.06);
+  width: 100px;
+  outline:none;
+  font-size:1em;
+  color: black;
+  text-align: center;
+  cursor:pointer;
+  font-family:"Roboto Condensed", sans-serif;
+  text-transform:uppercase;
+  transition:all 0.3s ease;
+  &:hover {
+    color:@calendar-standout;
+    font-weight:bold;
+  }
